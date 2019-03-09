@@ -20,6 +20,7 @@ class Board extends Component {
           <div className={styles["board"]}>
               <div className={styles["board-title"]}>
                 <h1>Identity board</h1>
+                <button className="btn btn-primary">Make a claim</button>
               </div>
 
               <div className={styles["board-panel"]}>
