@@ -6,7 +6,7 @@ $break-large: 1200px;
 
 /*Main styling*/
 body {
-  background-color: $bg;
+  background-color: $w;
   font-family: 'Exo', sans-serif;
   margin: auto;
   h1 {
@@ -15,7 +15,7 @@ body {
 }
 
 .panel {
-  background-color: $fg;
+  background-color: $gd-1;
   border-radius: 8px;
   padding: 10px;
 }
