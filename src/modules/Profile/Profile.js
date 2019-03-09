@@ -12,6 +12,7 @@ class Profile extends Component {
       "picture": "https://media.licdn.com/dms/image/C4D03AQEFEkHs6eyTKg/profile-displayphoto-shrink_200_200/0?e=1557360000&v=beta&t=iD77qK1-Gp3rGBetxiSJu6mu0E6wnCArxU2wKrtIUNI",
       "pseudo": "wawa.h8"
     }
+    const {toggleProfile} = this.props;
     return (
       <React.Fragment>
         <div className={styles["panel"]}>
@@ -19,8 +20,8 @@ class Profile extends Component {
           <img src={currentUser.picture} alt={currentUser.pseudo} title={currentUser.pseudo} />
           <input type="text" className="form-control" value={currentUser.pseudo}/>
           <span>
-            <button className="btn btn-primary" id="save">Save changes</button>
-            <button className="btn btn-danger" id="back">Back</button>
+            <button className="btn btn-primary">Save changes</button>
+            <button className="btn btn-danger" onClick={toggleProfile}>Cancel</button>
           </span>
         </div>
       </React.Fragment>

@@ -11,12 +11,16 @@ import BoardWrapper from './modules/Board/Wrapper';
 import HomeWrapper from './modules/Home/Wrapper';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
         <BrowserRouter>
           <div className={style["claimit-app"]}>
             <Route exact path="/" component={HomeWrapper} />
-            <BoardNav />
             <Route exact path="/board" component={BoardWrapper} />
           </div>
         </BrowserRouter>

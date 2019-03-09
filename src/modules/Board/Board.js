@@ -11,9 +11,14 @@ const bgStyle={backgroundImage: `url(${bg})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            height:'100vh'}
+            height:'100vh'};
 
 class Board extends Component {
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
+
   render() {
     return (
       <React.Fragment>
