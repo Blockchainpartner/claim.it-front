@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import styles from '../Board.module.scss';
 
 //mocking
-import {liveClaims} from '../ClaimsMonitor/mockLiveClaims';
+import {claims} from './mockClaims';
 
 //Components
 import ClaimsList from './ClaimsList';
 
 class ClaimsBoard extends Component {
   render() {
-    const claims = liveClaims;
     return (
       <React.Fragment>
         <div className={styles["panel-title"]}>
@@ -18,7 +17,7 @@ class ClaimsBoard extends Component {
             <span className={styles["claims-tools"]}>
 
             </span>
-            
+
             <div className={styles["claims-list-panel"]}>
               <ClaimsList claims={claims}/>
             </div>

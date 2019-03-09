@@ -5,7 +5,7 @@ import logo from "../../media/logo.png";
 const HomeNav = () => {
   return(
     <div>
-      <img src={logo} alt="kaim.it"/>
+      <img src={logo} alt="claim.it"/>
     </div>
   )
 };
