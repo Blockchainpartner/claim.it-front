@@ -18,7 +18,7 @@ class Board extends Component {
               <div className={styles["board-monitor"]}>
                 <ClaimsMonitor />
               </div>
-              <div className={styles["separator"]}></div>
+
               <div className={styles["board-claims"]+" panel"}>
                 <ClaimsBoard />
               </div>

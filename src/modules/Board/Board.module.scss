@@ -1,5 +1,6 @@
 @import '../../styles/_base.scss';
 
+/*Board*/
 .board {
   margin-top: 40px;
   .board-panel {
@@ -10,29 +11,23 @@
     }
     flex-flow: row;
     .board-monitor {
-      flex: 1 0 20%;
+      border-right: 1px solid $lg;
+      flex: 1 0 17%;
       margin: auto 10px;
+      padding-right: 3px;
     }
     .board-claims {
-      flex: 1 0 78%;
+      flex: 1 0 70%;
       margin: auto 10px;
     }
     .panel-title {
       margin-left: 10px;
       text-align: left;
     }
-    .separator {
-      height: 70%;
-      width: 1px;
-      background: lightgrey;
-      position: absolute;
-      left: 21%;
-      margin: 48px 4px;
-    }
   }
 }
 
-
+/*Live Claims*/
 .board-monitor {
   .lclaim-item {
     border-bottom: 1px solid $lg;
@@ -73,10 +68,31 @@
   }
 }
 
+/*Board Claims*/
 .board-claims {
   .claims-panel {
     display: flex;
     flex-flow: row;
     margin: 15px;
+  }
+
+  .claims-list {
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+    width: 135%;
+    .claim-item {
+      align-items: center;
+      display: flex;
+      justify-content: space-around;
+      margin: 5px auto;
+      flex-flow: row;
+      width: 100%;
+      .claim-img {
+        img {
+          width: 55px;
+        }
+      }
+    }
   }
 }
