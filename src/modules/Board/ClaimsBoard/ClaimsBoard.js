@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ClaimsBoardWrapper extends Component {
+class ClaimsBoard extends Component {
   render() {
     return (
       <React.Fragment>
@@ -9,4 +9,4 @@ class ClaimsBoardWrapper extends Component {
   }
 }
 
-export default ClaimsBoardWrapper;
+export default ClaimsBoard;
