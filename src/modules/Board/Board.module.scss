@@ -144,3 +144,29 @@
     }
   }
 }
+
+/*Claim modal*/
+.panel {
+  .claim-actors {
+    align-items: baseline;
+    display: flex;
+    justify-content: center;
+    span {
+      display: flex;
+      flex-flow: column;
+      margin: 8px;
+      img {
+        object-fit: contain;
+        margin: 5px;
+        width: 80px;
+      }
+    }
+  }
+  .claim-details {
+    span {
+      align-items: center;
+      justify-content: center;
+      margin: 10px 40px;
+    }
+  }
+}

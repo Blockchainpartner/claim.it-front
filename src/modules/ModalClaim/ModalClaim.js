@@ -11,10 +11,15 @@ class ModalClaim extends Component {
         <div className={styles["panel"]}>
           <h3>Claim</h3>
           <span className={styles["claim-actors"]}>
-            <label>From</label>
-            <img src={fromImg} alt={from} title={from} style={{borderRadius: '100%'}} onError={(e)=>{e.target.onerror = null; e.target.src="https://secure.webtoolhub.com/static/resources/icons/set110/7d2f7e06.png"}}/>
-            <label>To</label>
-            <img src={toImg} alt={to} title={to} style={{borderRadius: '100%'}}/>
+            <span>
+              <label>From</label>
+              <img src={fromImg} alt={from} title={from} style={{borderRadius: '100%'}} onError={(e)=>{e.target.onerror = null; e.target.src="https://secure.webtoolhub.com/static/resources/icons/set110/7d2f7e06.png"}}/>
+            </span>
+
+            <span>
+              <label>To</label>
+              <img src={toImg} alt={to} title={to} style={{borderRadius: '100%'}} onError={(e)=>{e.target.onerror = null; e.target.src="https://secure.webtoolhub.com/static/resources/icons/set110/7d2f7e06.png"}}/>
+            </span>
           </span>
 
           <span className={styles["claim-details"]}>
@@ -26,7 +31,9 @@ class ModalClaim extends Component {
             </span>
           </span>
 
-          <button className="btn btn-danger" onClick={toggleClaim}>Cancel</button>
+          <div>
+            <button className="btn btn-danger" onClick={toggleClaim}>Cancel</button>
+          </div>
         </div>
       </React.Fragment>
     );
