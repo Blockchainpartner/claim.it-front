@@ -1,0 +1,25 @@
+@import '../../styles/_base.scss';
+
+.board {
+  margin-top: 40px;
+  .board-panel {
+    display: flex;
+    margin-top: 40px;
+    @media screen and (max-width: $break-small) {
+      flex-flow: column;
+    }
+    flex-flow: row;
+    .board-monitor {
+      flex: 1 0 28%;
+      margin: auto 10px;
+    }
+    .board-claims {
+      flex: 1 0 68%;
+      margin: auto 10px;
+    }
+    .panel-title {
+      margin-left: 10px;
+      text-align: left;
+    }
+  }
+}

@@ -1,4 +1,21 @@
+@import './_colors.scss';
+
+/*Variables*/
+$break-small: 520px;
+$break-large: 1200px;
+
+/*Main styling*/
 body {
+  background-color: $bg;
   font-family: 'Exo', sans-serif;
   margin: auto;
+  h1 {
+    color: $gd-5;
+  }
+}
+
+.panel {
+  background-color: $fg;
+  border-radius: 8px;
+  padding: 10px;
 }
