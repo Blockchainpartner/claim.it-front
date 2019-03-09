@@ -57,9 +57,7 @@ const postClaim = ( claimPrototype ) => {
     return async (dispatch, getState) => {
         let { web3 } = getState.eth;
 
-        let currentWeb3Account = (await web3.eth.getAccounts())[0];
-
-        claimPrototype.userAddress = currentWeb3Account;
+        claimPrototype.userAddress = (await web3.eth.getAccounts())[0];
 
         axios.post(
             "myapiurl",
@@ -77,7 +75,7 @@ const postClaim = ( claimPrototype ) => {
 };
 
 const getClaim = ( claimId ) => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         axios.get(
             `myapiurl/${claimId}`,
             {}
@@ -93,7 +91,7 @@ const getClaim = ( claimId ) => {
 };
 
 const searchClaim = ( filter, limit, sort ) => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
 
         let data = {filter, limit, sort};
 
@@ -113,7 +111,7 @@ const searchClaim = ( filter, limit, sort ) => {
 };
 
 const putClaim = ( claimId, claimPrototype ) => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         axios.put(
             `myapiurl/${claimId}`,
             claimPrototype,

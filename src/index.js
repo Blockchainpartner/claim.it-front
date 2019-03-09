@@ -7,6 +7,7 @@ import './index.scss';
 import App from './App';
 import ethReducer from "./reducers/EthReducer";
 import claimReducer from "./reducers/ClaimReducer";
+import userReducer from "./reducers/UserReducer";
 import registerServiceWorker from './registerServiceWorker';
 
 /**
@@ -14,7 +15,8 @@ import registerServiceWorker from './registerServiceWorker';
  */
 const reducer = combineReducers({
     eth: ethReducer,
-    claim: claimReducer
+    claim: claimReducer,
+    user: userReducer
 });
 
 
