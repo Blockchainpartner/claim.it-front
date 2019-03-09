@@ -26,7 +26,6 @@ export function setWeb3(web3, ensContract){
 const initEthStore = () => {
     return async (dispatch) => {
         let web3;
-        console.log("Hello");
 
         if (window.ethereum) {
             web3 = new Web3(window.ethereum);
