@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './Board.module.scss';
+import styles from './Board.module.scss';
 
 //Components
 import ClaimsBoard from './ClaimsBoard/ClaimsBoard';
@@ -9,7 +9,7 @@ class Board extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className={style["board"]}>
+        <div className={styles["board"]}>
             board bitch !
         </div>
       </React.Fragment>
