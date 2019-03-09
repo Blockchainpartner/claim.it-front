@@ -17,7 +17,7 @@ const LiveClaimItem = (props) => {
 
       <span className={styles["lclaim-footer"]}>
         <p>{id}</p>
-        <span class="badge badge-success">{type}</span>
+        <span class="badge badge-warning">{type}</span>
       </span>
     </div>
   )

@@ -5,22 +5,24 @@ import styles from './Board.module.scss';
 //Components
 import ClaimsBoard from './ClaimsBoard/ClaimsBoard';
 import ClaimsMonitor from './ClaimsMonitor/ClaimsMonitor';
+import ProfileWrapper from '../Profile/Wrapper';
 
 const bgStyle={backgroundImage: `url(${bg})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            height:'100vh'}
+            height:'100vh'};
 
 class Board extends Component {
   render() {
+    const {profileOn, toggleProfile} = this.props;
     return (
       <React.Fragment>
         <div style={bgStyle}>
           <div className={styles["board"]}>
               <div className={styles["board-title"]}>
                 <h1>Identity board</h1>
-                <button className="btn btn-primary">Make a claim</button>
+                <button className="btn btn-success">Make a claim</button>
               </div>
 
               <div className={styles["board-panel"]+" card"} style={{padding: '20px'}}>
@@ -29,7 +31,12 @@ class Board extends Component {
                 </div>
 
                 <div className={styles["board-claims"]+" panel"}>
-                  <ClaimsBoard />
+                  {!profileOn &&
+                    <ClaimsBoard />
+                  }
+                  {profileOn &&
+                    <ProfileWrapper toggleProfile={toggleProfile}/>
+                  }
                 </div>
               </div>
           </div>

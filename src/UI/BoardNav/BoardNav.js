@@ -6,10 +6,11 @@ import logo from "../../media/logo.png";
 import SubProfile from './SubProfile';
 
 const BoardNav = (props) => {
+  const {toggleProfile} = props;
   return(
     <div className={styles["boardnav"]}>
       <img src={logo} alt="claim.it"/>
-      <SubProfile />
+      <SubProfile toggleProfile={toggleProfile}/>
     </div>
   )
 };

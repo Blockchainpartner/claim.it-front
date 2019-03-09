@@ -84,7 +84,6 @@
     justify-content: center;
     margin: 15px;
   }
-
   .claims-list {
     display: flex;
     flex-flow: column;
@@ -126,6 +125,7 @@
         }
       }
       .claim-info {
+        text-align: left;
         width: 50%;
         h6,
         p {
