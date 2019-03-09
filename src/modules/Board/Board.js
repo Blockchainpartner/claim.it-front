@@ -5,7 +5,7 @@ import styles from './Board.module.scss';
 //Components
 import ClaimsBoard from './ClaimsBoard/ClaimsBoard';
 import ClaimsMonitor from './ClaimsMonitor/ClaimsMonitor';
-import ModalClaim from '../ModalClaim/Wrapper';
+import ModalClaimWrapper from '../ModalClaim/Wrapper';
 import ProfileWrapper from '../Profile/Wrapper';
 
 const bgStyle={backgroundImage: `url(${bg})`,
@@ -16,7 +16,7 @@ const bgStyle={backgroundImage: `url(${bg})`,
 
 class Board extends Component {
   render() {
-    const {profileOn, toggleProfile} = this.props;
+    const {profileOn, toggleProfile, claimOn, toggleClaim, currentClaim} = this.props;
     return (
       <React.Fragment>
         <div style={bgStyle}>
@@ -32,11 +32,15 @@ class Board extends Component {
                 </div>
 
                 <div className={styles["board-claims"]+" panel"}>
-                  {!profileOn &&
-                    <ModalClaim />
+                  {(!profileOn && !claimOn) &&
+                    <ClaimsBoard toggleClaim={toggleClaim}/>
                   }
                   {profileOn &&
                     <ProfileWrapper toggleProfile={toggleProfile}/>
+                  }
+                  {claimOn &&
+                    <ModalClaimWrapper  toggleClaim={toggleClaim}
+                                        currentClaim={currentClaim}/>
                   }
                 </div>
               </div>

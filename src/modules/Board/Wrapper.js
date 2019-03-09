@@ -8,7 +8,9 @@ class BoardWrapper extends Component {
   constructor(props){
     super(props);
     this.state = {
-      profileOn: false
+      profileOn: false,
+      claimOn: false,
+      currentClaim: {}
     }
   }
 
@@ -23,13 +25,30 @@ class BoardWrapper extends Component {
     this.setState({profileOn});
   }
 
+  toggleClaim = (claim) => {
+    let claimOn = this.state.claimOn;
+    let currentClaim = this.state.currentClaim;
+    if(claimOn){
+      currentClaim = {};
+      claimOn = false;
+    }
+    else {
+      currentClaim = claim;
+      claimOn = true;
+    }
+    this.setState({claimOn, currentClaim});
+  }
+
   render() {
-    const {profileOn} = this.state;
+    const {profileOn, claimOn, currentClaim} = this.state;
     return (
       <React.Fragment>
         <BoardNav toggleProfile={this.toggleProfile}/>
         <Board  profileOn={profileOn}
-                toggleProfile={this.toggleProfile}/>
+                claimOn={claimOn}
+                toggleProfile={this.toggleProfile}
+                toggleClaim={this.toggleClaim}
+                currentClaim={currentClaim}/>
       </React.Fragment>
     );
   }

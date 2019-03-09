@@ -3,13 +3,16 @@ import styles from '../Board/Board.module.scss';
 
 class ModalClaim extends Component {
   render() {
+    console.log(this.props)
+    let {id, title, description, from, to, fromImg, toImg, type, createdAt} = this.props.currentClaim;
+    let {toggleClaim} = this.props;
     return (
       <React.Fragment>
         <div className={styles["panel"]}>
           <h3>Claim</h3>
           <span className={styles["claim-actors"]}>
             <label>From</label>
-            <img src={fromImg} alt={from} title={from} style={{borderRadius: '100%'}}/>
+            <img src={fromImg} alt={from} title={from} style={{borderRadius: '100%'}} onError={(e)=>{e.target.onerror = null; e.target.src="https://secure.webtoolhub.com/static/resources/icons/set110/7d2f7e06.png"}}/>
             <label>To</label>
             <img src={toImg} alt={to} title={to} style={{borderRadius: '100%'}}/>
           </span>
@@ -22,6 +25,8 @@ class ModalClaim extends Component {
               <i>Created {createdAt} ago</i>
             </span>
           </span>
+
+          <button className="btn btn-danger" onClick={toggleClaim}>Cancel</button>
         </div>
       </React.Fragment>
     );

@@ -6,7 +6,7 @@ class ModalClaimWrapper extends Component {
   render() {
     return (
       <React.Fragment>
-        <ModalClaim />
+        <ModalClaim currentClaim={this.props.currentClaim} toggleClaim={this.props.toggleClaim}/>
       </React.Fragment>
     );
   }
