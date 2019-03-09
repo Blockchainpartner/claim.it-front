@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import './index.scss';
 import App from './App';
 import ethReducer from "./reducers/EthReducer";
+import claimReducer from "./reducers/ClaimReducer";
 import registerServiceWorker from './registerServiceWorker';
 
 /**
@@ -13,12 +14,12 @@ import registerServiceWorker from './registerServiceWorker';
  */
 const reducer = combineReducers({
     eth: ethReducer,
+    claim: claimReducer
 });
 
 
 const store = createStore(
     reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // TODO remove in Prod
     applyMiddleware(thunk),
 );
 
