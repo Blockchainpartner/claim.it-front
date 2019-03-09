@@ -21,28 +21,36 @@
       margin-left: 10px;
       text-align: left;
     }
+    .separator {
+      height: 70%;
+      width: 1px;
+      background: lightgrey;
+      position: absolute;
+      left: 21%;
+      margin: 48px 4px;
+    }
   }
 }
 
+
 .board-monitor {
   .lclaim-item {
+    border-bottom: 1px solid $lg;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
     margin: 5px auto;
+    padding: 5px 0;
+    &:last-child {
+      border-bottom: 0px;
+    }
     .lclaim-title {
       text-align: left;
       h6 {
         margin: 10px 0 0 10px;
-
       }
     }
-    .lclaim-body {
-      align-items: baseline;
-      background-color: $lg;
-      border: 2px solid $gd-4;
-      border-radius: 8px;
-      display: flex;
-      flex-flow: row;
-      margin: 5px 8px;
-      justify-content: center;
+    .lclaim-img {
       span {
         margin: 10px;
         img {
@@ -55,11 +63,20 @@
     }
     .lclaim-footer {
       display: flex;
-      justify-content: space-between;
+      flex: 1 0 100%;
       flex-flow: row;
+      justify-content: space-between;
       >* {
         margin: 0 10px 5px 10px;
       }
     }
+  }
+}
+
+.board-claims {
+  .claims-panel {
+    display: flex;
+    flex-flow: row;
+    margin: 15px;
   }
 }

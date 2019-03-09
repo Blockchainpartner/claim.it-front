@@ -7,6 +7,10 @@ class ClaimsBoard extends Component {
       <React.Fragment>
         <div className={styles["panel-title"]}>
           <h3>Your claims</h3>
+          <div className={styles["claims-panel"]}>
+            <span>
+            </span>
+          </div>
         </div>
       </React.Fragment>
     );
