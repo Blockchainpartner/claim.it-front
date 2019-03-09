@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
-class ClaimsMonitor extends Component {
+//Components
+import Board from './Board';
+
+class BoardWrapper extends Component {
   render() {
     return (
       <React.Fragment>
+        <Board />
       </React.Fragment>
     );
   }
 }
 
-export default ClaimsMonitor;
+export default BoardWrapper;
