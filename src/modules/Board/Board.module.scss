@@ -73,6 +73,7 @@
   .claims-panel {
     display: flex;
     flex-flow: row;
+    justify-content: center;
     margin: 15px;
   }
 
@@ -80,7 +81,7 @@
     display: flex;
     flex-flow: column;
     margin: auto;
-    width: 135%;
+    width: 100%;
     .claim-item {
       align-items: center;
       display: flex;
@@ -89,9 +90,27 @@
       flex-flow: row;
       width: 100%;
       .claim-img {
+        text-align: center;
+        width: 10%;
         img {
           width: 55px;
         }
+      }
+      .claim-info {
+        width: 50%;
+        h6,
+        p {
+          margin-bottom: 0;
+          width: 90%;
+        }
+      }
+      .claim-details {
+        display: flex;
+        flex-flow: column;
+        width:20%;
+      }
+      .claim-actions {
+        width: 18%;
       }
     }
   }

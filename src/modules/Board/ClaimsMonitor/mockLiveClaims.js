@@ -7,7 +7,8 @@ export const liveClaims = [
     "to": "louis.ck",
     "fromImg": "https://api.gouv.fr/img/logo-fc.png",
     "toImg": "",
-    "type": "identity"
+    "type": "identity",
+    "createdAt": 8
   },
   {
     "id": "4dbn57dh1e",
@@ -17,7 +18,8 @@ export const liveClaims = [
     "to": "abzH",
     "fromImg": "https://www.groupe-eram.com/wp-content/uploads/2016/11/unicef-logo-1.png",
     "toImg": "",
-    "type": "ngo"
+    "type": "ngo",
+    "createdAt": 30
   },
   {
     "id": "1fa43dh780",
@@ -27,7 +29,8 @@ export const liveClaims = [
     "to": "giros",
     "fromImg": "https://api.gouv.fr/img/logo-fc.png",
     "toImg": "",
-    "type": "identity"
+    "type": "identity",
+    "createdAt": 7
   },
   {
     "id": "xAdj5E47dj",
@@ -37,7 +40,8 @@ export const liveClaims = [
     "to": "julien.s",
     "fromImg": "http://assistanteplus.fr/stock/lib/Assistanteplus/laposte.png",
     "toImg": "",
-    "type": "business"
+    "type": "business",
+    "createdAt": 1
   },
   {
     "id": "2aa66Fdhe3",
@@ -47,6 +51,7 @@ export const liveClaims = [
     "to": "arthusc",
     "fromImg": "https://www.usine-digitale.fr/mediatheque/4/6/0/000643064.png",
     "toImg": "",
-    "type": "academia"
+    "type": "academia",
+    "createdAt": 3
   },
 ]
