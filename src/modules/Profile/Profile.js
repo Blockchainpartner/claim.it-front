@@ -17,10 +17,10 @@ class Profile extends Component {
       <React.Fragment>
         <div className={styles["panel"]}>
           <h3>Your profile</h3>
-          <img src={currentUser.picture} alt={currentUser.pseudo} title={currentUser.pseudo} />
+          <img src={currentUser.picture} alt={currentUser.pseudo} title={currentUser.pseudo} style={{borderRadius: '100%'}}/>
           <input type="text" className="form-control" value={currentUser.pseudo}/>
           <span>
-            <button className="btn btn-primary">Save changes</button>
+            <button className="btn btn-success">Save changes</button>
             <button className="btn btn-danger" onClick={toggleProfile}>Cancel</button>
           </span>
         </div>
