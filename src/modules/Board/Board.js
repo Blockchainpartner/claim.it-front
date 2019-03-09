@@ -5,6 +5,7 @@ import styles from './Board.module.scss';
 //Components
 import ClaimsBoard from './ClaimsBoard/ClaimsBoard';
 import ClaimsMonitor from './ClaimsMonitor/ClaimsMonitor';
+import ModalClaim from '../ModalClaim/Wrapper';
 import ProfileWrapper from '../Profile/Wrapper';
 
 const bgStyle={backgroundImage: `url(${bg})`,
@@ -32,7 +33,7 @@ class Board extends Component {
 
                 <div className={styles["board-claims"]+" panel"}>
                   {!profileOn &&
-                    <ClaimsBoard />
+                    <ModalClaim />
                   }
                   {profileOn &&
                     <ProfileWrapper toggleProfile={toggleProfile}/>
