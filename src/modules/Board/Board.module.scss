@@ -3,19 +3,22 @@
 /*Board*/
 .board {
   @media screen and (max-width: $break-xlarge) {
-    margin: auto 20px;
-    width: 80%;
+    margin: auto;
+    width: 95%;
   }
   margin: 10px auto;
   width: 80%;
   .board-panel {
     display: flex;
     margin-top: 40px;
-    @media screen and (max-width: $break-small) {
+    @media screen and (max-width: $break-large) {
       flex-flow: column;
     }
     flex-flow: row;
     .board-monitor {
+      @media screen and (max-width: $break-large) {
+        border-right: 0;
+      }
       border-right: 1px solid $lg;
       flex: 1 0 17%;
       margin: auto 10px;
@@ -105,6 +108,9 @@
       background-color: #F5F5F5;
     }
     .claim-item {
+      @media screen and (max-width: $break-large) {
+        min-height: 115px;
+      }
       align-items: center;
       display: flex;
       justify-content: space-around;
