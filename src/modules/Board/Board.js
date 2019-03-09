@@ -5,6 +5,7 @@ import styles from './Board.module.scss';
 //Components
 import ClaimsBoard from './ClaimsBoard/ClaimsBoard';
 import ClaimsMonitor from './ClaimsMonitor/ClaimsMonitor';
+import ProfileWrapper from '../Profile/Wrapper';
 
 const bgStyle={backgroundImage: `url(${bg})`,
             backgroundPosition: 'center',
@@ -29,7 +30,7 @@ class Board extends Component {
                 </div>
 
                 <div className={styles["board-claims"]+" panel"}>
-                  <ClaimsBoard />
+                  <ProfileWrapper />
                 </div>
               </div>
           </div>
