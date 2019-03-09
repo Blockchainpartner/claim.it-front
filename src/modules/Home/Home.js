@@ -9,7 +9,7 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <div>
+        <div className={styles["home"]}>
           <HomeNav/>
           <h1>Next generation identity claims manager</h1>
           <p>Access, manage, explore and send ERC734 identity claims.</p>

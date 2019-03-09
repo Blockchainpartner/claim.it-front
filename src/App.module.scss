@@ -1,12 +1,8 @@
 @import './styles/_base.scss';
 
 .claimit-app {
-  width: 80%;
   margin: auto;
   height: 100vh;
   overflow: hidden;
   text-align: center;
-  @media screen and (max-width: $break-xlarge) {
-    margin: auto 20px;;
-  }
 }
