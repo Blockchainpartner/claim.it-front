@@ -23,7 +23,7 @@ class Board extends Component {
                 <button className="btn btn-primary">Make a claim</button>
               </div>
 
-              <div className={styles["board-panel"]}>
+              <div className={styles["board-panel"]+" card"} style={{padding: '20px'}}>
                 <div className={styles["board-monitor"]}>
                   <ClaimsMonitor />
                 </div>
