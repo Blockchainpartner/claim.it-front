@@ -22,7 +22,7 @@ const ClaimItem = (props) => {
       </span>
 
       <span className={styles["claim-actions"]}>
-        <button className="btn btn-primary">Details</button>
+        <button className="btn btn-success">Details</button>
       </span>
     </div>
   )

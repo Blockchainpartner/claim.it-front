@@ -5,9 +5,10 @@ import Profile from './Profile';
 
 class ProfileWrapper extends Component {
   render() {
+    const {toggleProfile} = this.props;
     return (
       <React.Fragment>
-        <Profile />
+        <Profile toggleProfile={toggleProfile}/>
       </React.Fragment>
     );
   }

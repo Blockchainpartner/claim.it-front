@@ -14,19 +14,15 @@ const bgStyle={backgroundImage: `url(${bg})`,
             height:'100vh'};
 
 class Board extends Component {
-  constructor(props){
-    super(props);
-    this.state = {}
-  }
-
   render() {
+    const {profileOn, toggleProfile} = this.props;
     return (
       <React.Fragment>
         <div style={bgStyle}>
           <div className={styles["board"]}>
               <div className={styles["board-title"]}>
                 <h1>Identity board</h1>
-                <button className="btn btn-primary">Make a claim</button>
+                <button className="btn btn-success">Make a claim</button>
               </div>
 
               <div className={styles["board-panel"]+" card"} style={{padding: '20px'}}>
@@ -35,7 +31,12 @@ class Board extends Component {
                 </div>
 
                 <div className={styles["board-claims"]+" panel"}>
-                  <ProfileWrapper />
+                  {!profileOn &&
+                    <ClaimsBoard />
+                  }
+                  {profileOn &&
+                    <ProfileWrapper toggleProfile={toggleProfile}/>
+                  }
                 </div>
               </div>
           </div>
