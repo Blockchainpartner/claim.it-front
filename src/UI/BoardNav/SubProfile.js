@@ -4,6 +4,7 @@ import styles from './BoardNav.module.scss';
 import ethereumjs from "ethereumjs-tx";
 import { initEthStore } from '../../actions/EthAction';
 import PropTypes from "prop-types";
+import {withRouter} from "react-router-dom";
 
 class SubProfile extends Component {
   constructor(props){
@@ -67,7 +68,8 @@ class SubProfile extends Component {
           <span className={styles["actions"]}>
             <p>{currentUser.id}</p>
             <button className="btn btn-info" onClick={()=>toggleProfile()}>PROFILE</button>
-            <button className="btn btn-danger" onClick={()=>window.location.reload()}>LOGOUT</button>
+            <button className="btn btn-danger" onClick={()=>{this.props.history.push('/')}}>LOGOUT</button>
+
           </span>
 
           <span className={styles["picture"]}>
@@ -95,4 +97,6 @@ const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubProfile);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SubProfile)
+);
