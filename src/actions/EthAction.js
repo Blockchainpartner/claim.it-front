@@ -1,11 +1,13 @@
 import Web3 from 'web3';
 import ensContractABI from '../util/ensContractABI';
+import ipfsClient from 'ipfs-http-client';
 
 /**
  * Action types
  */
 
 const SET_WEB3 = 'SET_WEB3';
+const SET_IPFS = 'SET_IPFS';
 
 /**
  * Action creators
@@ -18,6 +20,13 @@ export function setWeb3(web3, ensContract){
         ensContract
     }
 };
+
+export function setIpfs(ipfs){
+    return {
+        type: SET_IPFS,
+        ipfs
+    }
+}
 
 /**
  * Thunk action creators
@@ -46,7 +55,18 @@ const initEthStore = () => {
     }
 }
 
+const initIpfs = () => {
+    return async (dispatch) => {
+
+        let ipfs = ipfsClient({ host: '54.93.97.27', port: '5001', protocol: 'http' })
+
+        dispatch(setIpfs(ipfs));
+    }
+}
+
 export {
     SET_WEB3,
+    SET_IPFS,
     initEthStore,
+    initIpfs
 }

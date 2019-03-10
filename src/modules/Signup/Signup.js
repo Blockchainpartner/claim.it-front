@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import styles from './Signup.module.scss';
 
 //Components
 import HomeNav from '../../UI/HomeNav/HomeNav';
+import { postUser } from "../../actions/UserActions";
+import fileReaderPullStream from 'pull-file-reader';
 
 class Signup extends Component {
 
   pictureChange = (e) => {
+    let ipfsId;
     let files = e.target.files;
     if (files && files[0]) {
-      //DO.STUFF
+      const fileStream = fileReaderPullStream(files[0]);
+      this.props.ipfs.add(fileStream, { progress: (prog) => console.log(`received: ${prog}`) })
+          .then((response) => {
+            console.log(response)
+            ipfsId = response[0].hash
+            console.log(ipfsId)
+            this.props.postUser(ipfsId)
+          }).catch((err) => {
+        console.error(err)
+      })
     }
-  }
+  };
 
   render() {
     return (
@@ -30,4 +43,22 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+const mapStateToProps = (store) => {
+  return {
+    ipfs: store.eth.ipfs
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    postUser: (prototype) => {
+      dispatch(postUser(prototype))
+    }
+  }
+};
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Signup);

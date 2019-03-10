@@ -53,14 +53,18 @@ export function userActionError(){
  * Thunk action creators
  */
 
-const postUser = ( userPrototype ) => {
+const postUser = ( ipfsURI ) => {
     return async (dispatch, getState) => {
-        let { web3 } = getState.eth;
+        let { web3 } = getState().eth;
 
-        userPrototype.userAddress = (await web3.eth.getAccounts())[0];
+        let userPrototype = {
+            pictureURI: ipfsURI
+        };
+
+        userPrototype.actionKeyAddress = (await web3.eth.getAccounts())[0];
 
         axios.post(
-            "myapiurl",
+            "http://192.168.99.100:8080/user",
             userPrototype,
             {}
 

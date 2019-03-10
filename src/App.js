@@ -11,7 +11,7 @@ import HomeWrapper from './modules/Home/Wrapper';
 import SignupWrapper from './modules/Signup/Wrapper'
 
 // Import Actions
-import { initEthStore } from "./actions/EthAction";
+import { initEthStore, initIpfs } from "./actions/EthAction";
 
 class App extends Component {
   constructor(props){
@@ -19,9 +19,11 @@ class App extends Component {
     this.state = {};
 
     props.initEthStore();
+    props.initIpfs();
   }
 
   render() {
+      console.log(this.props)
     return (
         <BrowserRouter>
           <div className={style["claimit-app"]}>
@@ -37,7 +39,8 @@ class App extends Component {
 const mapStateToProps = (store) => {
     return {
         web3: store.eth.web3,
-        ensContract: store.eth.ensContract
+        ensContract: store.eth.ensContract,
+        ipfs: store.eth.ipfs
     }
 };
 
@@ -45,6 +48,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         initEthStore: () => {
             dispatch(initEthStore())
+        },
+        initIpfs: () => {
+            dispatch(initIpfs())
         }
     }
 };
