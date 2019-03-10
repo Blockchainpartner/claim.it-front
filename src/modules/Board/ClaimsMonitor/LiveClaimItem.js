@@ -13,11 +13,7 @@ const LiveClaimItem = (props) => {
 
       <span className={styles["lclaim-title"]}>
         <h6>{title}</h6>
-      </span>
-
-      <span className={styles["lclaim-footer"]}>
-        <p>{id}</p>
-        <span class="badge badge-warning">{type}</span>
+        <span class="badge badge-warning" style={{marginLeft: '10px'}}>{type}</span>
       </span>
     </div>
   )
