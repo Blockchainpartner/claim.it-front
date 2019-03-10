@@ -60,7 +60,7 @@ const postClaim = ( claimPrototype ) => {
         claimPrototype.userAddress = (await web3.eth.getAccounts())[0];
 
         axios.post(
-            "myapiurl",
+            "",
             claimPrototype,
             {}
 
@@ -77,7 +77,7 @@ const postClaim = ( claimPrototype ) => {
 const getClaim = ( claimId ) => {
     return async (dispatch) => {
         axios.get(
-            `myapiurl/${claimId}`,
+            `/${claimId}`,
             {}
 
         ).then((response) => {
@@ -96,7 +96,7 @@ const searchClaim = ( filter, limit, sort ) => {
         let data = {filter, limit, sort};
 
         axios.post(
-            `myapiurl/search`,
+            `/search`,
             data,
             {}
 
@@ -113,7 +113,7 @@ const searchClaim = ( filter, limit, sort ) => {
 const putClaim = ( claimId, claimPrototype ) => {
     return async (dispatch) => {
         axios.put(
-            `myapiurl/${claimId}`,
+            `/${claimId}`,
             claimPrototype,
             {}
 

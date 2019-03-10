@@ -14,31 +14,31 @@ const ERROR_USER = 'ERROR_USER';
  * Action creators
  */
 
-export function postUserSuccess(){
+export function postUserSuccess(user){
     return {
         type: POST_USER,
-
+        user: user,
     }
 }
 
-export function getUserSuccess(){
+export function getUserSuccess(user){
     return {
         type: GET_USER,
-
+        user: user,
     }
 }
 
-export function searchUserSuccess(){
+export function searchUserSuccess(users){
     return {
         type: SEARCH_USER,
-
+        users: users,
     }
 }
 
-export function putUserSuccess(){
+export function putUserSuccess(user){
     return {
         type: PUT_USER,
-
+        user: user,
     }
 }
 
@@ -65,14 +65,14 @@ const postUser = ( ipfsURI ) => {
         console.log(userPrototype)
         axios({
           method:'post',
-          url:'http://127.0.0.1:8080/user',
+          url:'/user',
           data: userPrototype,
           headers: {
             'Content-Type': 'application/json'
           }
         }).then((response) => {
             console.log(response);
-            dispatch(postUserSuccess());
+            dispatch(postUserSuccess(response.data));
         }).catch((error) => {
             console.log(error);
             dispatch(userActionError());
@@ -83,7 +83,7 @@ const postUser = ( ipfsURI ) => {
 const getUser = ( userId ) => {
     return async (dispatch) => {
         axios.get(
-            `myapiurl/${userId}`,
+            `/user/${userId}`,
             {}
 
         ).then((response) => {
@@ -102,13 +102,13 @@ const searchUser = ( filter, limit, sort ) => {
         let data = {filter, limit, sort};
 
         axios.post(
-            `myapiurl/search`,
+            `/user/search`,
             data,
             {}
 
         ).then((response) => {
             console.log(response);
-            dispatch(searchUserSuccess());
+            dispatch(searchUserSuccess(response.data));
         }).catch((error) => {
             console.log(error);
             dispatch(userActionError());
@@ -119,7 +119,7 @@ const searchUser = ( filter, limit, sort ) => {
 const putUser = ( userId, userPrototype ) => {
     return async (dispatch) => {
         axios.put(
-            `myapiurl/${userId}`,
+            `/user/${userId}`,
             userPrototype,
             {}
 

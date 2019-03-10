@@ -1,6 +1,7 @@
+import axios from "axios/index";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {applyMiddleware, combineReducers, createStore, compose,} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import './index.scss';
@@ -20,12 +21,23 @@ const reducer = combineReducers({
 });
 
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
-    reducer,
-    applyMiddleware(thunk),
+  reducer,
+  composeEnhancer(applyMiddleware(thunk)),
 );
 
+
 export {store};
+
+/**
+ * set axios base configuration
+ */
+axios.interceptors.request.use(function (config) {
+  config.url = 'http://127.0.0.1:8080' + config.url;
+  return config;
+});
 
 ReactDOM.render(
     <Provider store={store}>

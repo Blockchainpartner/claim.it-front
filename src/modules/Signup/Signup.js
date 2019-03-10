@@ -5,8 +5,9 @@ import Loader from 'react-loader-spinner';
 
 //Components
 import HomeNav from '../../UI/HomeNav/HomeNav';
-import { postUser } from "../../actions/UserActions";
+import {postUser, searchUser} from "../../actions/UserActions";
 import fileReaderPullStream from 'pull-file-reader';
+import {withRouter} from "react-router-dom";
 
 class Signup extends Component {
   constructor(props){
@@ -31,7 +32,9 @@ class Signup extends Component {
               console.log(response);
               let ipfsId = response[0].hash;
               console.log(ipfsId);
-              this.props.postUser(ipfsId)
+              this.props.postUser(ipfsId);
+            this.props.getAllUsers(); // TODO do NOT do that in real life !
+            this.props.history.push('/board')
           }).catch((err) => {
           console.error(err)
       })
@@ -78,12 +81,17 @@ const mapDispatchToProps = (dispatch) => {
   return {
     postUser: (prototype) => {
       dispatch(postUser(prototype))
+    },
+    getAllUsers: () => {
+      dispatch(searchUser({},0,{}))
     }
   }
 };
 
 
-export default connect(
+export default withRouter(
+  connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Signup);
+  )(Signup)
+);
