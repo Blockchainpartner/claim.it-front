@@ -75,7 +75,7 @@ class ModalSend extends Component {
 
             <span className={styles["claim-actions"]}>
               <button className="btn btn-success send">Send</button>
-              <button className="btn btn-danger cancel" onClick={toggleSendClaim}>Cancel</button>
+              <button className="btn btn-danger cancel" onClick={toggleSendClaim}>Back</button>
             </span>
           </div>
         </div>

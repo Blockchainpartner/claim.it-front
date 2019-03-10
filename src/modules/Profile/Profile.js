@@ -48,7 +48,7 @@ class Profile extends Component {
 
           <span>
             <button className="btn btn-success" onClick={this.saveChanges}>Save changes</button>
-            <button className="btn btn-danger" onClick={toggleProfile}>Cancel</button>
+            <button className="btn btn-danger" onClick={toggleProfile}>Back</button>
           </span>
         </div>
       </React.Fragment>
