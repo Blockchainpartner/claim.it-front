@@ -20,7 +20,7 @@ class Board extends Component {
     const {profileOn, toggleProfile, claimOn, toggleClaim, currentClaim, toggleSendClaim, sendClaimOn} = this.props;
     return (
       <React.Fragment>
-        <div style={bgStyle}>
+        <div >
           <div className={styles["board"]}>
               <div className={styles["board-title"]}>
                 <h1>Identity board</h1>
@@ -29,12 +29,13 @@ class Board extends Component {
 
               <div className={styles["board-panel"]+" card"} style={{padding: '20px'}}>
                 <div className={styles["board-monitor"]}>
-                  <ClaimsMonitor />
+                  <ClaimsMonitor toggleClaim={toggleClaim}/>
                 </div>
 
                 <div className={styles["board-claims"]+" panel"}>
                   {(!profileOn && !claimOn && !sendClaimOn) &&
-                    <ClaimsBoard toggleClaim={toggleClaim}/>
+                    <ClaimsBoard  toggleClaim={toggleClaim}
+                                  currentClaim={currentClaim}/>
                   }
                   {profileOn &&
                     <ProfileWrapper toggleProfile={toggleProfile}/>

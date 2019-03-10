@@ -32,7 +32,7 @@ class ModalClaim extends Component {
           </span>
 
           <div>
-            <button className="btn btn-danger" onClick={toggleClaim}>Cancel</button>
+            <button className="btn btn-danger" onClick={toggleClaim}>Back</button>
           </div>
         </div>
       </React.Fragment>

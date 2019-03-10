@@ -16,9 +16,6 @@ const ClaimItem = (props) => {
       </span>
 
       <span className={styles["claim-details"]}>
-        <span title="Other destinations">
-          Other destinations
-        </span>
         <i>Created {createdAt} days ago</i>
       </span>
 

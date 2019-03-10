@@ -39,7 +39,7 @@ class Profile extends Component {
         <div className={styles["panel"]}>
           <h3>Your profile</h3>
           <img src={currentUser.picture} alt={currentUser.pseudo} title={currentUser.pseudo} style={{borderRadius: '100%'}}/>
-          <div className="custom-file mb-3">
+          <div className={styles["input-file"]+" custom-file mb-3"}>
             <input type="file" className="custom-file-input" id="customFile" onChange={this.pictureChange}/>
             <label className="custom-file-label" for="customFile">Default custom file input</label>
           </div>
@@ -48,7 +48,7 @@ class Profile extends Component {
 
           <span>
             <button className="btn btn-success" onClick={this.saveChanges}>Save changes</button>
-            <button className="btn btn-danger" onClick={toggleProfile}>Cancel</button>
+            <button className="btn btn-danger" onClick={toggleProfile}>Back</button>
           </span>
         </div>
       </React.Fragment>

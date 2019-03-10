@@ -54,4 +54,26 @@ export const liveClaims = [
     "type": "academia",
     "createdAt": 3
   },
+  {
+    "id": "2aa66ddhe3",
+    "title": "Place of birth",
+    "description": "Interrogatus confisus feceris per postridie hesterno discesseris adscitus aetatem triennio.",
+    "from": "Mairie de Paris",
+    "to": "phi.m",
+    "fromImg": "https://www.usine-digitale.fr/mediatheque/4/6/0/000643064.png",
+    "toImg": "",
+    "type": "gov",
+    "createdAt": 1
+  },
+  {
+    "id": "2ab66Fdhe3",
+    "title": "Science grades",
+    "description": "Interrogatus confisus feceris per postridie hesterno discesseris adscitus aetatem triennio.",
+    "from": "42",
+    "to": "tho.cha",
+    "fromImg": "https://www.usine-digitale.fr/mediatheque/4/6/0/000643064.png",
+    "toImg": "",
+    "type": "academia",
+    "createdAt": 3
+  },
 ]

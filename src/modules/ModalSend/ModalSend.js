@@ -6,25 +6,26 @@ class ModalSend extends Component {
     super(props);
     this.state = {
       users: [],
-      keyword: '',
       title: '',
       tag: '',
-      description: ''
+      description: '',
+      selectedUser: {}
     }
-  }
-
-  handleFilter = (e) => {
-    let keyword = e.target.value;
-    this.setState({keyword});
   }
 
   handleForm = (e) => {
     this.setState({[e.target.name]: e.target.value});
   }
 
+  selectUser = (user) => {
+    let selectUser = user;
+    this.setState({selectUser});
+    //DO.STUFF
+  }
+
   render() {
     let {toggleSendClaim} = this.props;
-    let {keyword, title, tag, description} = this.state;
+    let {title, tag, description} = this.state;
     let users = [
       {
         "pseudo": "FranceConnect",
@@ -55,10 +56,9 @@ class ModalSend extends Component {
           <div className={styles["claim-form"]}>
             <span className={styles["claim-users"]}>
               <h5>Claim target</h5>
-              <input className="form-control" type="text" value={keyword} onChange={this.handleFilter} placeholder="Filter users"/>
               <div className={styles["users-list"]}>
                 {users.map((u)=>{
-                  return <span><img src={u.picture} alt={u.pseudo} title={u.pseudo}/><p>{u.pseudo}</p></span>
+                  return <span onClick={()=>{this.selectUser(u)}}><img src={u.picture} alt={u.pseudo} title={u.pseudo}/><p>{u.pseudo}</p></span>
                 })}
               </div>
             </span>
@@ -75,7 +75,7 @@ class ModalSend extends Component {
 
             <span className={styles["claim-actions"]}>
               <button className="btn btn-success send">Send</button>
-              <button className="btn btn-danger cancel" onClick={toggleSendClaim}>Cancel</button>
+              <button className="btn btn-danger cancel" onClick={toggleSendClaim}>Back</button>
             </span>
           </div>
         </div>

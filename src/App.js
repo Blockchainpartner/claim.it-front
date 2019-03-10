@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'shards-ui/dist/css/shards.min.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import style from './App.module.scss';
+import bg from './media/bg1.png';
 
 //Components
 import BoardWrapper from './modules/Board/Wrapper';
@@ -16,17 +17,21 @@ import { initEthStore, initIpfs } from "./actions/EthAction";
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {};
-
     props.initEthStore();
     props.initIpfs();
   }
 
+
   render() {
-      console.log(this.props)
+    const bgStyle={backgroundImage: `url(${bg})`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                height:'100vh'};
+
     return (
         <BrowserRouter>
-          <div className={style["claimit-app"]}>
+          <div className={style["claimit-app"]} style={bgStyle}>
             <Route exact path="/" component={HomeWrapper} />
             <Route exact path="/board" component={BoardWrapper} />
             <Route exact path="/signup" component={SignupWrapper} />
