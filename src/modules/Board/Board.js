@@ -20,7 +20,7 @@ class Board extends Component {
     const {profileOn, toggleProfile, claimOn, toggleClaim, currentClaim, toggleSendClaim, sendClaimOn} = this.props;
     return (
       <React.Fragment>
-        <div style={bgStyle}>
+        <div >
           <div className={styles["board"]}>
               <div className={styles["board-title"]}>
                 <h1>Identity board</h1>
