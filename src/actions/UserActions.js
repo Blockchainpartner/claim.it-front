@@ -62,13 +62,15 @@ const postUser = ( ipfsURI ) => {
         };
 
         userPrototype.actionKeyAddress = (await web3.eth.getAccounts())[0];
-
-        axios.post(
-            "http://192.168.99.100:8080/user",
-            userPrototype,
-            {}
-
-        ).then((response) => {
+        console.log(userPrototype)
+        axios({
+          method:'post',
+          url:'http://127.0.0.1:8080/user',
+          data: userPrototype,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then((response) => {
             console.log(response);
             dispatch(postUserSuccess());
         }).catch((error) => {
