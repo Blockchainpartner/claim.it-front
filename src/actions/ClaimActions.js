@@ -1,4 +1,6 @@
 import axios from "axios";
+import { claimHolderABI } from "../util/claimHolderContract";
+import { identityABI } from "../util/identityContract";
 
 /**
  * Action types
@@ -53,15 +55,33 @@ export function claimActionError(){
  * Thunk action creators
  */
 
-const postClaim = ( claimPrototype ) => {
+const postClaim = ( tag, ipfsURI, recipient ) => {
     return async (dispatch, getState) => {
-        let { web3 } = getState.eth;
+        let { web3 } = getState().eth;
+        let { currentUser } = getState().user;
 
-        claimPrototype.userAddress = (await web3.eth.getAccounts())[0];
+        let account = (await web3.eth.getAccounts())[0];
+
+        let claimHolderAddress = web3.utils.toChecksumAddress(recipient.claimHolderAddress);
+        const claimHolderContract = new web3.eth.Contract(claimHolderABI, claimHolderAddress);
+
+        let callData = claimHolderContract.methods
+            .addClaim(tag, 0, tag, tag, ipfsURI).encodeABI();
+
+        let identityAddress = web3.utils.toChecksumAddress(currentUser.proxyAddress);
+        const identityContract = new web3.eth.Contract(identityABI, identityAddress);
+
+        identityContract.methods.execute(0, recipient.claimHolderAddress, 0, callData)
+            .send({ from: account, gasPrice: 0 }).once('confirmation', async () => {
+            let claimId = await claimHolderContract.methods.getClaimIdsByTopic().call();
+            let claim = await claimHolderContract.methods.getClaim(claimId).call();
+
+            console.log(claimId, claim)
+        });
 
         axios.post(
             "",
-            claimPrototype,
+            {},
             {}
 
         ).then((response) => {

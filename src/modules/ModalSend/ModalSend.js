@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styles from '../Board/Board.module.scss';
+
+import { postClaim } from "../../actions/ClaimActions";
 
 class ModalSend extends Component {
   constructor(props){
@@ -15,13 +18,32 @@ class ModalSend extends Component {
 
   handleForm = (e) => {
     this.setState({[e.target.name]: e.target.value});
-  }
+  };
 
   selectUser = (user) => {
-    let selectUser = user;
-    this.setState({selectUser});
+    let selectedUser = user;
+    this.setState({selectedUser});
     //DO.STUFF
-  }
+  };
+
+  submitClaim = () => {
+    let ipfsData = {
+      title: this.state.title,
+      description: this.state.description,
+      tag: this.state.tag
+    };
+    this.props.ipfs.add(this.props.ipfs.Buffer(JSON.stringify(ipfsData)), { progress: (prog) => console.log(`received: ${prog}`) })
+        .then((response) => {
+          console.log(response);
+          let ipfsId = response[0].hash;
+          console.log(ipfsId);
+          this.props.postClaim(this.state.tag, ipfsId, this.state.selectedUser);
+          this.props.getAllUsers(); // TODO do NOT do that in real life !
+          this.props.history.push('/board')
+        }).catch((err) => {
+      console.error(err)
+    })
+  };
 
   render() {
     let {toggleSendClaim} = this.props;
@@ -74,7 +96,7 @@ class ModalSend extends Component {
             </span>
 
             <span className={styles["claim-actions"]}>
-              <button className="btn btn-success send">Send</button>
+              <button className="btn btn-success send" onClick={this.submitClaim}>Send</button>
               <button className="btn btn-danger cancel" onClick={toggleSendClaim}>Back</button>
             </span>
           </div>
@@ -84,4 +106,22 @@ class ModalSend extends Component {
   }
 }
 
-export default ModalSend;
+const mapStateToProps = (store) => {
+  return {
+    ipfs: store.eth.ipfs
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    postClaim: (tag, ipfsURI, user) => {
+      dispatch(postClaim(tag, ipfsURI, user))
+    }
+  }
+};
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ModalSend);
