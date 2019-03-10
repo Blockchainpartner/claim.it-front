@@ -54,9 +54,8 @@ class SubProfile extends Component {
   render() {
     const {toggleProfile, currentUser,} = this.props;
     console.log(this.props)
-    const proxyAddress = currentUser ? currentUser.proxyAddress : "0x0";
+    let proxyAddress = currentUser ? (currentUser.proxyAddress.slice(0,4) + '...' + currentUser.proxyAddress.slice(38,42))  : "0x...00";
     const pictureUri = currentUser ? IPFS_NODE_URI_PREFIX + currentUser.pictureUri : "";
-    const pseudonym = currentUser ? currentUser.pseudonym : "";
     return (
       <React.Fragment>
         <div className={styles["sub-profile"]}>
@@ -68,7 +67,7 @@ class SubProfile extends Component {
           </span>
 
           <span className={styles["picture"]}>
-            <img src={pictureUri} alt="Profile" title={pseudonym} />
+            <img src={pictureUri} alt="Profile" />
           </span>
         </div>
       </React.Fragment>

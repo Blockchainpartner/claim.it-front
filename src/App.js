@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'shards-ui/dist/css/shards.min.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import style from './App.module.scss';
-import bg from './media/bg1.png';
 
 //Components
 import BoardWrapper from './modules/Board/Wrapper';
@@ -23,6 +22,7 @@ class App extends Component {
 
 
   render() {
+    const bg = 'https://arweave.net/6-9PDqNXIUZIwcK_TCBSowRhtFbmuASWw9KHoEhRhJU';
     const bgStyle={backgroundImage: `url(${bg})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',

@@ -35,7 +35,7 @@ export {store};
  * set axios base configuration
  */
 axios.interceptors.request.use(function (config) {
-  config.url = 'http://127.0.0.1:8080' + config.url;
+  config.url = 'http://35.180.63.147:8080' + config.url;
   return config;
 });
 

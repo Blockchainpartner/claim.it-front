@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import bg from '../../media/bg1.png';
 import styles from './Board.module.scss';
 
 //Components
@@ -9,6 +8,7 @@ import ModalClaimWrapper from '../ModalClaim/Wrapper';
 import ModalSendWrapper from '../ModalSend/Wrapper';
 import ProfileWrapper from '../Profile/Wrapper';
 
+const bg = 'https://arweave.net/6-9PDqNXIUZIwcK_TCBSowRhtFbmuASWw9KHoEhRhJU';
 const bgStyle={backgroundImage: `url(${bg})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
