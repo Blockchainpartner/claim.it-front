@@ -9,7 +9,7 @@ const LiveClaimList = (props) => {
     <div className={styles["live-list"]}>
       {
         props.liveClaims.map((lclaim)=>{
-          return <LiveClaimItem lclaim={lclaim} key={lclaim.id}/>
+          return <LiveClaimItem lclaim={lclaim} key={lclaim.id} toggleClaim={props.toggleClaim}/>
         })
       }
     </div>

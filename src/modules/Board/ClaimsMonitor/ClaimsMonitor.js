@@ -22,7 +22,7 @@ class ClaimsMonitor extends Component {
         </div>
 
         <div className={styles["panel-content"]}>
-          <LiveClaimList liveClaims={liveClaims} />
+          <LiveClaimList liveClaims={liveClaims} toggleClaim={this.props.toggleClaim}/>
         </div>
       </React.Fragment>
     );

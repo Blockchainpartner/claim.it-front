@@ -10,25 +10,31 @@ class BoardWrapper extends Component {
     this.state = {
       profileOn: false,
       claimOn: false,
+      sendClaimOn: false,
       currentClaim: {},
-      sendClaimOn: false
     }
   }
 
   toggleProfile = () => {
     let profileOn = this.state.profileOn;
+    let claimOn = null;
+    let sendClaimOn = null;
     if(profileOn){
       profileOn = false;
     }
     else {
       profileOn = true;
+      claimOn = false;
+      sendClaimOn = false;
     }
-    this.setState({profileOn});
+    this.setState({profileOn, sendClaimOn, claimOn});
   }
 
   toggleClaim = (claim) => {
     let claimOn = this.state.claimOn;
     let currentClaim = this.state.currentClaim;
+    let profileOn = null;
+    let sendClaimOn = null;
     if(claimOn){
       currentClaim = {};
       claimOn = false;
@@ -36,19 +42,25 @@ class BoardWrapper extends Component {
     else {
       currentClaim = claim;
       claimOn = true;
+      profileOn = false;
+      sendClaimOn = false;
     }
-    this.setState({claimOn, currentClaim});
+    this.setState({claimOn, currentClaim, profileOn, sendClaimOn});
   }
 
   toggleSendClaim = () => {
     let sendClaimOn = this.state.sendClaimOn;
+    let claimOn = null;
+    let profileOn = null;
     if(sendClaimOn){
       sendClaimOn = false;
     }
     else {
       sendClaimOn = true;
+      profileOn = false;
+      claimOn = false;
     }
-    this.setState({sendClaimOn});
+    this.setState({sendClaimOn, claimOn, profileOn});
   }
 
   render() {
