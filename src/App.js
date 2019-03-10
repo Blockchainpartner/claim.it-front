@@ -9,6 +9,7 @@ import style from './App.module.scss';
 import BoardNav from './UI/BoardNav/BoardNav';
 import BoardWrapper from './modules/Board/Wrapper';
 import HomeWrapper from './modules/Home/Wrapper';
+import SignupWrapper from './modules/Signup/Wrapper'
 
 class App extends Component {
   constructor(props){
@@ -22,6 +23,7 @@ class App extends Component {
           <div className={style["claimit-app"]}>
             <Route exact path="/" component={HomeWrapper} />
             <Route exact path="/board" component={BoardWrapper} />
+            <Route exact path="/signup" component={SignupWrapper} />
           </div>
         </BrowserRouter>
     );
