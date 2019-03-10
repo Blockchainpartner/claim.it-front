@@ -53,8 +53,9 @@ class ModalSend extends Component {
           <h3>New claim</h3>
 
           <div className={styles["claim-form"]}>
-            <span>
-              <input className="form-control" type="text" value={keyword} onChange={this.handleFilter}/>
+            <span className={styles["claim-users"]}>
+              <h5>Claim target</h5>
+              <input className="form-control" type="text" value={keyword} onChange={this.handleFilter} placeholder="Filter users"/>
               <div className={styles["users-list"]}>
                 {users.map((u)=>{
                   return <span><img src={u.picture} alt={u.pseudo} title={u.pseudo}/><p>{u.pseudo}</p></span>
@@ -62,15 +63,19 @@ class ModalSend extends Component {
               </div>
             </span>
 
-            <span>
-              <input className="form-control" type="text" name="title" value={title} onChange={this.handleForm}/>
-              <input className="form-control" type="text" name="tag" value={tag} onChange={this.handleForm}/>
-              <input className="form-control" type="textarea" name="description" value={description} onChange={this.handleForm}/>
+            <span className={styles["claim-data"]}>
+              <h5>Claim data</h5>
+              <label>Title</label>
+              <input className="form-control" type="text" placeholder="Permanent residency" name="title" value={title} onChange={this.handleForm} />
+              <label>Tag</label>
+              <input className="form-control" type="text" placeholder="Category tag" name="tag" value={tag} onChange={this.handleForm} />
+              <label>Description</label>
+              <input className="form-control" type="textarea" placeholder="Text describing your claim" name="description" value={description} onChange={this.handleForm}/>
             </span>
 
-            <span>
-              <button className="btn btn-success">Send</button>
-              <button className="btn btn-danger" onClick={toggleSendClaim}>Cancel</button>
+            <span className={styles["claim-actions"]}>
+              <button className="btn btn-success send">Send</button>
+              <button className="btn btn-danger cancel" onClick={toggleSendClaim}>Cancel</button>
             </span>
           </div>
         </div>
