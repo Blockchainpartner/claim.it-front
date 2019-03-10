@@ -9,7 +9,8 @@ const UserReducer = (state = defaultState, action) => {
                 users: {
                 ...state.users,
                 [action.user.id]: action.user
-                }
+                },
+                currentUser: action.user,
             };
 
         case GET_USER:
