@@ -9,7 +9,7 @@ const ClaimsList = (props) => {
     <div className={styles["claims-list"]}>
       {
         props.claims.map((claim)=>{
-          return <ClaimItem claim={claim} key={claim.id}/>
+          return <ClaimItem claim={claim} key={claim.id} toggleClaim={props.toggleClaim}/>
         })
       }
     </div>

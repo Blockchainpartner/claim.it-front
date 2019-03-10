@@ -144,3 +144,93 @@
     }
   }
 }
+
+/*Claim modal*/
+.panel {
+  .claim-actors {
+    align-items: baseline;
+    display: flex;
+    justify-content: center;
+    span {
+      display: flex;
+      flex-flow: column;
+      margin: 8px;
+      img {
+        object-fit: contain;
+        margin: 5px;
+        width: 80px;
+      }
+    }
+  }
+  .claim-details {
+    span {
+      align-items: center;
+      justify-content: center;
+      margin: 10px 40px;
+    }
+  }
+}
+
+/*Send Claim*/
+.claim-form {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  .claim-users,
+  .claim-data {
+    flex: 1 0 45%;
+    margin: 0 2px;
+  }
+  .claim-users {
+    input {
+      height: 30px;
+      margin: auto;
+      width: 80%;
+    }
+    .users-list {
+      align-items: center;
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      height: 300px;
+      justify-content: center;
+      margin: 5px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: $gd-4;
+      }
+      &::-webkit-scrollbar {
+        width: 8px;
+        background-color: #F5F5F5;
+      }
+      span {
+        max-width: 30%;
+        flex: 1 0 30%;
+        img {
+          border-radius: 100%;
+          width: 50px;
+        }
+      }
+    }
+  }
+  .claim-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    button:nth-of-type(1n) {
+      margin: 5px;
+      width: 70%;
+    }
+    button:nth-of-type(2n) {
+      margin: 5px;
+      width: 25%;
+    }
+  }
+}

@@ -28,6 +28,7 @@ class Profile extends Component {
 
   saveChanges = () => {
     //PUT this.state.currentUser
+    //Update component then !!
   }
 
   render() {

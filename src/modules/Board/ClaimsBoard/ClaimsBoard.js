@@ -19,7 +19,7 @@ class ClaimsBoard extends Component {
             </span>
 
             <div className={styles["claims-list-panel"]}>
-              <ClaimsList claims={claims}/>
+              <ClaimsList claims={claims} toggleClaim={this.props.toggleClaim}/>
             </div>
           </div>
         </div>
