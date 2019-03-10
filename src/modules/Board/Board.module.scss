@@ -62,6 +62,9 @@
     flex-wrap: wrap;
     margin: 5px auto;
     padding: 5px 0;
+    &:hover {
+      cursor: pointer;
+    }
     &:last-child {
       border-bottom: 0px;
     }
