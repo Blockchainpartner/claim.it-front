@@ -1,8 +1,11 @@
 .panel {
   height: 450px;
+  .input-file {
+    margin-top: 15px;
+  }
   input {
     text-align: center;
-    margin: 50px auto;
+    margin: 15px auto;
     width: 70%;
   }
   span {
