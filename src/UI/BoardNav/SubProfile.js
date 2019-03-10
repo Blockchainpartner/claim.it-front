@@ -13,10 +13,6 @@ class SubProfile extends Component {
     this.state = {};
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    this.props.initEthStore();
-
-  }
 
   addResolver = () => {
     const web3 = this.props.web3;

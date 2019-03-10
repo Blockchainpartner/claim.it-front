@@ -62,19 +62,20 @@ const postClaim = ( tag, ipfsURI, recipient ) => {
 
         let account = (await web3.eth.getAccounts())[0];
 
-        let claimHolderAddress = web3.utils.toChecksumAddress(recipient.claimHolderAddress);
+        let claimHolderAddress = web3.utils.toChecksumAddress(currentUser.claimHolderAddress);
         const claimHolderContract = new web3.eth.Contract(claimHolderABI, claimHolderAddress);
 
         let callData = claimHolderContract.methods
-            .addClaim(tag, 0, tag, tag, ipfsURI).encodeABI();
+            .addClaim(web3.utils.fromAscii(tag), 0, web3.utils.fromAscii(tag), web3.utils.fromAscii(tag), ipfsURI).encodeABI();
 
         let identityAddress = web3.utils.toChecksumAddress(currentUser.proxyAddress);
         const identityContract = new web3.eth.Contract(identityABI, identityAddress);
-
-        identityContract.methods.execute(0, recipient.claimHolderAddress, 0, callData)
-            .send({ from: account, gasPrice: 0 }).once('confirmation', async () => {
-            let claimId = await claimHolderContract.methods.getClaimIdsByTopic().call();
-            let claim = await claimHolderContract.methods.getClaim(claimId).call();
+        console.log(currentUser)
+        identityContract.methods.execute(0, currentUser.claimHolderAddress, 0, callData)
+            .send({ from: account, gasPrice: 0 }).once('confirmation', async (a, b) => {
+            let claimId = await claimHolderContract.methods.getClaimIdsByTopic(web3.utils.fromAscii(tag)).call();
+            console.log(tag, web3.utils.fromAscii(tag), claimId, web3.utils.fromAscii(claimId[0]))
+            let claim = await claimHolderContract.methods.getClaim(claimId[0]).call();
 
             console.log(claimId, claim)
         });
